@@ -4,4 +4,6 @@ html
         title HTMX + Express
     body
         h1 Hello World!
-
+        div#outer
+            button(hx-get='/click' hx-target='#outer' hx-swap='innerHTML') Click Me!
+        script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')

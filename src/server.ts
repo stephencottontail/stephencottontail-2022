@@ -12,6 +12,10 @@ app.get( '/', ( req: Request, res: Response ) => {
 	res.render( 'index' );
 } );
 
+app.get( '/click', ( req: Request, res: Response ) => {
+	res.render( 'test' );
+} );
+
 app.listen( port, () => {
 	console.log( `Listening on port ${port}` );
 } );
