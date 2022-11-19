@@ -5,9 +5,16 @@ html
 	body
 		h1 Hello World!
 		div#outer
-			button(data-hx-get='/click' data-hx-target='#outer' data-hx-swap='beforeend' data-hx-vals='js:{count: countPanes()}') Click Me!
+			button(onClick='setTitle()' data-hx-get='/abc' data-hx-target='#inner' data-hx-swap='beforeend' data-hx-vals='js:{count: countPanes()}') Click Me!
+			div#inner
 		script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')
 		script(type='text/javascript').
+			function setTitle() {
+				var count = countPanes();
+
+				document.title = 'There are ' + count + ' panes';
+			}
+
 			function countPanes() {
 				return document.querySelectorAll('.pane').length;
 			}
