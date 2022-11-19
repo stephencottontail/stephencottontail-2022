@@ -13,7 +13,8 @@ app.get( '/', ( req: Request, res: Response ) => {
 } );
 
 app.get( '/click', ( req: Request, res: Response ) => {
-	res.render( 'test' );
+	console.log( req.query );
+	res.render( 'pane', { count: req.query.count }  );
 } );
 
 app.listen( port, () => {

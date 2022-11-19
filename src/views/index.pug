@@ -1,9 +1,13 @@
 html
-    head
-        meta(name='viewport' content='width=device-width, initial-scale=1')
-        title HTMX + Express
-    body
-        h1 Hello World!
-        div#outer
-            button(hx-get='/click' hx-target='#outer' hx-swap='innerHTML') Click Me!
-        script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')
+	head
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		title HTMX + Express
+	body
+		h1 Hello World!
+		div#outer
+			button(data-hx-get='/click' data-hx-target='#outer' data-hx-swap='beforeend' data-hx-vals='js:{count: countPanes()}') Click Me!
+		script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')
+		script(type='text/javascript').
+			function countPanes() {
+				return document.querySelectorAll('.pane').length;
+			}
