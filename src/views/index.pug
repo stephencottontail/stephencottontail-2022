@@ -5,14 +5,14 @@ html
 	body
 		h1 Hello World!
 		div#outer
-			button(onClick='setTitle()' data-hx-get='/abc' data-hx-target='#inner' data-hx-swap='beforeend' data-hx-vals='js:{count: countPanes()}') Click Me!
+			button#click(onClick='setTitle()' data-hx-get='/abc' data-hx-push-url="true" data-hx-target='#inner' data-hx-swap='beforeend' data-hx-vals='js:{count: countPanes()}') Get Started!
 			div#inner
 		script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')
 		script(type='text/javascript').
 			function setTitle() {
 				var count = countPanes();
 
-				document.title = 'There are ' + count + ' panes';
+				document.title = 'There are ' + ( Number( count ) + 1 ) + ' panes';
 			}
 
 			function countPanes() {

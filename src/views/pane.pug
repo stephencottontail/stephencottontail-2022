@@ -1,3 +1,7 @@
-- var size = ( Number( count ) * 5 ) + 16;
+- var slugs = ['alpha', 'beta', 'gamma', 'delta'];
+- var size = count ? ( Number( count ) * 5 ) + 16 : 20;
+- var slug = count ? slugs[count % 4] : 'none';
 
-div.pane(style='font-size: ' + size + 'px')= slug
+div.pane
+	p(style='font-size: ' + size + 'px')= count ? ( Number( count ) + 1 ) + '. ' + slug : slug
+	button#click(onClick='setTitle()' data-hx-get='/' + slug data-hx-push-url="true" data-hx-target='#inner' data-hx-swap='beforeend' data-hx-vals='js:{count: countPanes()}') Click Me!

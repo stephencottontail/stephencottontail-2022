@@ -11,19 +11,13 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 
 app.get( '/:slug', ( req: Request, res: Response ) => {
-	res.render( 'pane', { slug: req.params.slug, count: req.query.count }  );
+	res.render( 'pane', { slug: req.params.slug, count: req.query.count } );
 } );
 
 app.get( '/', ( req: Request, res: Response ) => {
 	res.render( 'index' );
-	console.log( url.format( {
-		protocol: req.protocol,
-		host: req.get( 'host' ),
-		pathname: req.originalUrl
-	} ) );
 } );
 
 app.listen( port, () => {
 	console.log( `Listening on port ${port}` );
 } );
-
