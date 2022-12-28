@@ -1,9 +1,0 @@
-extends ../layout.pug
-
-block title
-	title Pane!
-				
-block content
-	div.pane
-		p(style='font-size: ' + size + 'px')= Number( count ) + '. ' + slug
-		button#click(data-hx-get='/' + slug data-hx-push-url='/' + slug data-hx-target='#page' data-hx-swap='beforeend' data-hx-vals={count: count + 1}) Click

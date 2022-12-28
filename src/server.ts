@@ -11,20 +11,35 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 
 const renderPage = ( options: object ): string => {
-	const page = pug.compileFile( './src/views/templates/content.pug' );
+	const page = pug.compileFile( './src/views/layout.pug' );
 	const result = page( options );
 
 	return result;
 }
 
+const renderPartial = ( options: object ): string => {
+	const partial = pug.compileFile( './src/views/partials/pane.pug' );
+	const result = partial( options );
+
+	return result;
+}
+
 app.get( '/:slug', ( req: Request, res: Response ) => {
+	let rendered;
 	const count = Number( req.query.count ) || 1;
 	const slug = req.params.slug;
 
-	const rendered = renderPage( {
-		count: count,
-		slug: slug
-	} );
+	if ( count === 1 ) {
+		rendered = renderPage( {
+			count: count,
+			slug: slug
+		} );
+	} else {
+		rendered = renderPartial( {
+			count: count,
+			slug: slug
+		} );
+	}
 
 	res.send( rendered );
 } );

@@ -1,14 +1,7 @@
-- var size = ( Number( count ) * 5 ) + 20
-
 html
 	head
 		meta(name='viewport' content='width=device-width, initial-scale=1')
-		block title
-			title Stephen Dickinson
+		title Stephen Dickinson
 	body#page
-		block content
+		include ./partials/pane.pug
 		script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')
-		script(type='text/javascript').
-			function countPanes() {
-				return document.querySelectorAll('.pane').length;
-			}
