@@ -11,14 +11,14 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 
 const renderPage = ( options: object ): string => {
-	const page = pug.compileFile( './src/views/layout.pug' );
+	const page = pug.compileFile( './src/views/layout.pug', { doctype: 'html' } );
 	const result = page( options );
 
 	return result;
 }
 
 const renderPartial = ( options: object ): string => {
-	const partial = pug.compileFile( './src/views/partials/pane.pug' );
+	const partial = pug.compileFile( './src/views/partials/pane.pug', { doctype: 'html' } );
 	const result = partial( options );
 
 	return result;

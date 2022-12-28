@@ -1,8 +1,10 @@
-html
+doctype html
+html(lang='en')
 	head
+		meta(charset='UTF-8')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 		title Stephen Dickinson
 	body#page
 		p= slug
-		button#click(data-hx-get='/' + slug data-hx-push-url='/' + slug data-hx-target='#page' data-hx-swap='beforeend' data-hx-vals={count: count + 1}) Click
-		script(type='text/javascript' src='https://unpkg.com/htmx.org@1.8.4')
+		button(data-hx-get='/' + slug data-hx-push-url='/' + slug data-hx-target='#page' data-hx-swap='beforeend' data-hx-vals={count: count + 1}) Click
+		script(src='https://unpkg.com/htmx.org@1.8.4')

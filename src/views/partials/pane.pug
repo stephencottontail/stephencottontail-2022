@@ -1,4 +1,4 @@
 title(data-hx-swap-oob='true')= slug
 div.pane
-	p(style='font-size: ' + size + 'px')= Number( count ) + '. ' + slug
-	button#click(data-hx-get='/' + slug data-hx-push-url='/' + slug data-hx-target='#page' data-hx-swap='beforeend' data-hx-vals={count: count + 1}) Click
+	p= Number( count ) + '. ' + slug
+	button(data-hx-get='/' + slug data-hx-push-url='/' + slug data-hx-target='#page' data-hx-swap='beforeend' data-hx-vals={count: count + 1}) Click
