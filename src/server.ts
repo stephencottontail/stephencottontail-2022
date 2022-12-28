@@ -37,8 +37,10 @@ app.get( '/:slug', ( req: Request, res: Response ) => {
 	} else {
 		rendered = renderPartial( {
 			count: count,
-			slug: slug
+			slug: 'Joey'
 		} );
+
+		console.log( rendered );
 	}
 
 	res.send( rendered );
