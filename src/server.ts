@@ -18,7 +18,7 @@ const renderPage = ( options: object ): string => {
 }
 
 app.get( '/:slug', ( req: Request, res: Response ) => {
-	const count = req.query.count || 1;
+	const count = Number( req.query.count ) || 1;
 	const slug = req.params.slug;
 
 	const rendered = renderPage( {
