@@ -39,8 +39,6 @@ app.get( '/:slug', ( req: Request, res: Response ) => {
 			count: count,
 			slug: 'Joey'
 		} );
-
-		console.log( rendered );
 	}
 
 	res.send( rendered );
